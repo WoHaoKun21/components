@@ -1,13 +1,16 @@
+// 创建
 @mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
   padding: $padding-y $padding-x;
   font-size: $font-size;
   border-radius: $border-raduis;
 }
 
+// 按钮样式
 @mixin button-style(
   $background,
   $border,
   $color,
+  // 颜色变浅7.5%——自动生成了三个变量
   $hover-background: lighten($background, 7.5%),
   $hover-border: lighten($border, 10%),
   $hover-color: $color
@@ -26,6 +29,7 @@
     background: $hover-background;
     border-color: $hover-border;
   }
+  // 为了防止禁用按钮颜色也发生变化
   &:disabled,
   &.disabled {
     color: $color;

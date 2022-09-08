@@ -8,11 +8,99 @@
   text-align: center;
   vertical-align: middle;
   background-image: none;
+  background: $white;
   border: $btn-border-width solid transparent;
-  padding: $btn-padding-y, $btn-padding-y;
-  font-size: $btn-font-size;
-  border-radius: $btn-border-radius;
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $btn-border-radius
+  );
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
+  // 有disabled的类和包括disabled属性的元素
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    // 通配符，对子元素生效
+    > * {
+      pointer-events: none; // 不接收鼠标事件
+    }
+  }
+  
+  &:focus,
+  &.focus {
+    outline: none;
+  }
+}
+
+// 大按钮样式
+.btn-lg {
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
+}
+
+// 小按钮样式
+.btn-sm {
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
+}
+
+// Primary类型按钮
+.btn-primary {
+  @include button-style($primary, $primary, $white);
+}
+
+// danger类型按钮
+.btn-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+// default默认按钮
+.btn-default {
+  @include button-style(
+    $white,
+    $gray-400,
+    $body-color,
+    $white,
+    $primary,
+    $primary
+  );
+}
+
+// link类型按钮
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  // 设置为类
+  // 划入后的效果
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  // 设置获取焦点后的变化
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+  // 禁用的和拥有指定类型的元素样式变化
+  &:disabled,
+  &.disabled {
+    text-decoration: $btn-link-disabled-color;
+    box-shadow: none;
+  }
 }
