@@ -10,7 +10,7 @@ export interface MenuProps {
     mode?: MenuMode;
     style?: React.CSSProperties;
     children?: React.ReactNode;
-    onSelect?: SelectCallback
+    onSelect?: SelectCallback;
 }
 
 interface IMenuContext {
@@ -38,17 +38,19 @@ const Menu: React.FC<MenuProps> = (props) => {
         index: currentActive ? currentActive : 0,
         onSelect: handleClick
     }
+
     const renderChildren = () => {
         return React.Children.map(children, (child, index) => {// 遍历子元素，也就是MenuItem
             const childElement = child as React.FunctionComponentElement<MenuItemProps>;
             const { displayName } = childElement.type;// displayName是子元素的名字也就是我们的MenuItem组件
-            if (displayName === "MenuItem") {
-                return React.cloneElement(childElement, { index });
-            } else {
+            if (displayName === "MenuItem") {// Menu组件下面加载的是MenuItem组件
+                return React.cloneElement(childElement, { index });// 克隆组件，并且传入index属性
+            } else {// 不是MenuItem组件
                 console.log("Warning：Menu has a child which is not MenuItem component")
             }
         })
     }
+
     return (
         <ul className={classes} style={style}>
             <MenuContext.Provider value={passedContext}>
