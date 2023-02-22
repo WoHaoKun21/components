@@ -24,7 +24,8 @@ const Menu: React.FC<MenuProps> = (props) => {
     const { className, mode, style, children, defaultIndex, onSelect } = props;
     const [currentActive, setCurrentActive] = useState(defaultIndex);
     const classes = classNames("viking-menu", className, {
-        "menu-vertical": mode === "vertical"
+        "menu-vertical": mode === "vertical",
+        "menu-horizontal": mode !== "vertical",
     })
 
     const handleClick = (index: number) => {
@@ -46,7 +47,7 @@ const Menu: React.FC<MenuProps> = (props) => {
             if (displayName === "MenuItem") {// Menu组件下面加载的是MenuItem组件
                 return React.cloneElement(childElement, { index });// 克隆组件，并且传入index属性
             } else {// 不是MenuItem组件
-                console.warn("Warning：Menu has a child which is not MenuItem component")
+                console.error("Warning：Menu has a child which is not MenuItem component")
             }
         })
     }
