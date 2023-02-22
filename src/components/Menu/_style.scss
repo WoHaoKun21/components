@@ -1,3 +1,4 @@
+// 整体样式
 .viking-menu {
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +74,8 @@
   //   //display: block;
   // }
 }
+
+// 横向排列样式
 .menu-horizontal {
   > .menu-item {
     border-bottom: $menu-item-active-border-width solid transparent;
@@ -87,6 +90,8 @@
     box-shadow: $submenu-box-shadow;
   }
 }
+
+// 纵向排列样式
 .menu-vertical {
   flex-direction: column;
   border-bottom: 0px;

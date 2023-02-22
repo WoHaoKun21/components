@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import axios from "axios";
 import Button, { ButtonSize, ButtonType } from "./components/Button";
 import Menu from "./components/Menu";
 import MenuItem from "./components/Menu/MenuItem";
@@ -7,7 +5,7 @@ import MenuItem from "./components/Menu/MenuItem";
 function App() {
     return (
         <div className="App">
-            <Menu defaultIndex={0} onSelect={(index) => console.log(index)}>
+            <Menu defaultIndex={0} /* mode="horizontal" */ onSelect={(index) => console.log(index)}>
                 <MenuItem>cool link</MenuItem>
                 <MenuItem disabled>cool link 2</MenuItem>
                 <MenuItem>cool link 3</MenuItem>

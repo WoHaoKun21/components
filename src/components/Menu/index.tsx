@@ -46,13 +46,13 @@ const Menu: React.FC<MenuProps> = (props) => {
             if (displayName === "MenuItem") {// Menu组件下面加载的是MenuItem组件
                 return React.cloneElement(childElement, { index });// 克隆组件，并且传入index属性
             } else {// 不是MenuItem组件
-                console.log("Warning：Menu has a child which is not MenuItem component")
+                console.warn("Warning：Menu has a child which is not MenuItem component")
             }
         })
     }
 
     return (
-        <ul className={classes} style={style}>
+        <ul className={classes} style={style} data-testid='test-menu'>
             <MenuContext.Provider value={passedContext}>
                 {renderChildren()}
             </MenuContext.Provider>
