@@ -1,6 +1,7 @@
 import Button, { ButtonSize, ButtonType } from "./components/Button";
 import Menu from "./components/Menu";
 import MenuItem from "./components/Menu/MenuItem";
+import SubMenu from "./components/Menu/subMenu";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <MenuItem>cool link 4</MenuItem>
                 {/* <li>hello</li> */}
             </Menu>
+
             <Button>hello</Button>
             <Button disabled>hello</Button>
             <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
@@ -26,6 +28,16 @@ function App() {
             <Button disabled btnType={ButtonType.Link} href="http://www.baidu.com">
                 disabled Link
             </Button>
+            <h5>SubMenu下拉菜单</h5>
+            <Menu defaultIndex={0} mode="horizontal" onSelect={(index) => console.log(index)}>
+                <MenuItem>cool link</MenuItem>
+                <MenuItem disabled>cool link 2</MenuItem>
+                <SubMenu title="dropdown">
+                    <MenuItem> dropdown1</MenuItem>
+                    <MenuItem> dropdown2</MenuItem>
+                </SubMenu>
+                <MenuItem>cool link 3</MenuItem>
+            </Menu>
         </div>
     );
 }

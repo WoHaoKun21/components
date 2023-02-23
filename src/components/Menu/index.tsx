@@ -44,7 +44,7 @@ const Menu: React.FC<MenuProps> = (props) => {
         return React.Children.map(children, (child, index) => {// 遍历子元素，也就是MenuItem
             const childElement = child as React.FunctionComponentElement<MenuItemProps>;
             const { displayName } = childElement.type;// displayName是子元素的名字也就是我们的MenuItem组件
-            if (displayName === "MenuItem") {// Menu组件下面加载的是MenuItem组件
+            if (displayName === "MenuItem" || displayName === "SubMenu") {// Menu组件下面加载的是MenuItem组件
                 return React.cloneElement(childElement, { index });// 克隆组件，并且传入index属性
             } else {// 不是MenuItem组件
                 console.error("Warning：Menu has a child which is not MenuItem component")
