@@ -69,5 +69,5 @@ describe("test Menu and MenuItem component", () => {
         const wrapper = render(generateMenu(testVerProps));// 进行组件渲染
         const menuElement = wrapper.getByTestId("test-menu");
         expect(menuElement).toHaveClass('menu-vertical')
-    })
+    });
 })

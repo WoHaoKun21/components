@@ -29,6 +29,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     )
 }
 
-MenuItem.displayName = "MenuItem";// displayName是react内置的一个静态属性
+MenuItem.displayName = "MenuItem";// displayName是react内置的一个静态属性，用来给组件起个名字
 
 export default MenuItem;

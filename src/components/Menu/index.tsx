@@ -35,8 +35,8 @@ const Menu: React.FC<MenuProps> = (props) => {
         }
     }
 
-    const passedContext: IMenuContext = {
-        index: currentActive ? currentActive : 0,
+    const passedContext: IMenuContext = {// 全局context数据
+        index: currentActive ? currentActive : 0,// 触发的索引
         onSelect: handleClick
     }
 
